@@ -29,7 +29,7 @@
 				A desktop that stays yours.
 			</h1>
 			<p class="mt-6 text-lg leading-relaxed text-paper-dim sm:text-xl">
-				wasisabi is an opinionated, open-source-only Wayland desktop for NixOS. Every default
+				wabisabi is an opinionated, open-source-only Wayland desktop for NixOS. Every default
 				is an option you can override, the install is an ordinary flake you own, and nothing
 				asks for an account.
 			</p>
@@ -38,7 +38,7 @@
 					href="#install"
 					class="rounded-md bg-seal px-6 py-3 font-medium text-paper-light shadow-lg shadow-ink-950/40 transition hover:bg-seal-light"
 				>
-					Install wasisabi
+					Install wabisabi
 				</a>
 				<a
 					href={links.repo}

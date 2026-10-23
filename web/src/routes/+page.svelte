@@ -58,7 +58,7 @@
 			<SectionHeading
 				kicker="Not a distro"
 				title="The modules are the product."
-				intro="An ISO is only a shortcut that installs them. No knowledge of wasisabi is needed to use the system, or to leave it."
+				intro="An ISO is only a shortcut that installs them. No knowledge of wabisabi is needed to use the system, or to leave it."
 			/>
 			<div class="mt-16 grid gap-px overflow-hidden rounded-xl bg-ink-700/60 md:grid-cols-3">
 				{#each principles as p (p.title)}
@@ -324,7 +324,7 @@
 				<a
 					href="#install"
 					class="mt-8 inline-block rounded-md bg-seal px-6 py-3 font-medium text-paper-light transition hover:bg-seal-light"
-					>Install wasisabi</a
+					>Install wabisabi</a
 				>
 			</div>
 		</div>
@@ -337,7 +337,7 @@
 	>
 		<div class="flex flex-wrap items-center gap-x-3 gap-y-1">
 			<img src={url('/enso.svg')} alt="" class="h-7 w-7" />
-			<span class="font-serif text-lg whitespace-nowrap text-paper-light">wasisabi</span>
+			<span class="font-serif text-lg whitespace-nowrap text-paper-light">wabisabi</span>
 			<span class="w-full text-sm text-ash sm:w-auto">Open source only. Nothing to sign up for.</span>
 		</div>
 		<div class="flex gap-6 text-sm text-paper-dim">

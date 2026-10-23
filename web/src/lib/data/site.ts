@@ -3,16 +3,16 @@ import {createLatestRelease, fileOf, type Release} from './releases';
 
 /**
  * Everything the home page says, as data. The source of truth is the
- * wasisabi README; when it changes, this file is what follows it.
+ * wabisabi README; when it changes, this file is what follows it.
  */
 
 export const links = {
-	repo: 'https://github.com/wighawag/wasisabi',
-	readme: 'https://github.com/wighawag/wasisabi#readme',
+	repo: 'https://github.com/wighawag/wabisabi',
+	readme: 'https://github.com/wighawag/wabisabi#readme',
 	modules: 'https://github.com/wighawag/nixos-modules',
-	notes: 'https://github.com/wighawag/wasisabi/tree/main/notes',
-	installerNotes: 'https://github.com/wighawag/wasisabi/blob/main/notes/installer.md',
-	agentNotes: 'https://github.com/wighawag/wasisabi/blob/main/notes/agents.md',
+	notes: 'https://github.com/wighawag/wabisabi/tree/main/notes',
+	installerNotes: 'https://github.com/wighawag/wabisabi/blob/main/notes/installer.md',
+	agentNotes: 'https://github.com/wighawag/wabisabi/blob/main/notes/agents.md',
 };
 
 // What can be downloaded. Live from the release bucket (see releases.ts);
@@ -23,15 +23,15 @@ export const fallbackRelease: Release = {
 	date: '2026-09-29',
 	files: [
 		{
-			name: 'wasisabi-netinstall.iso',
+			name: 'wabisabi-netinstall.iso',
 			kind: 'netinstall',
 			size: 1557233664,
 			sha256: '414dfb5e58a805eefb9a3a82030b679794714bb8655ec1e037e4d74dcab7b11a',
-			url: 'https://github.com/wighawag/wasisabi/releases/download/v0.1.0/wasisabi-netinstall.iso',
+			url: 'https://github.com/wighawag/wabisabi/releases/download/v0.1.0/wabisabi-netinstall.iso',
 		},
 	],
-	sums: 'https://github.com/wighawag/wasisabi/releases/download/v0.1.0/SHA256SUMS',
-	notes: 'https://github.com/wighawag/wasisabi/releases/tag/v0.1.0',
+	sums: 'https://github.com/wighawag/wabisabi/releases/download/v0.1.0/SHA256SUMS',
+	notes: 'https://github.com/wighawag/wabisabi/releases/tag/v0.1.0',
 };
 
 export const latestRelease = createLatestRelease(fallbackRelease);
@@ -49,7 +49,7 @@ export const rules = [
 	{
 		title: 'Open source only.',
 		body: 'Enforced at build time, not promised in a README. The system layer asserts that allowUnfree is off and fails the build otherwise.',
-		detail: 'wasisabi.enforceLibre = false opts out, in the open.',
+		detail: 'wabisabi.enforceLibre = false opts out, in the open.',
 	},
 	{
 		title: 'No service you cannot run yourself.',
@@ -69,7 +69,7 @@ export const principles = [
 	},
 	{
 		title: 'Easy to leave',
-		body: 'Remove the two module imports and you have a working NixOS machine that has never heard of wasisabi. Not a distro: the modules are the product.',
+		body: 'Remove the two module imports and you have a working NixOS machine that has never heard of wabisabi. Not a distro: the modules are the product.',
 	},
 ];
 
@@ -133,25 +133,25 @@ export const anon = {
 
 export const install = {
 	flash: `sha256sum -c --ignore-missing SHA256SUMS
-sudo dd if=wasisabi-netinstall.iso of=/dev/sdX bs=4M status=progress oflag=sync
+sudo dd if=wabisabi-netinstall.iso of=/dev/sdX bs=4M status=progress oflag=sync
 # boot the stick, then:
-sudo wasisabi-install`,
-	live: `nix build github:wighawag/wasisabi#iso-offline
+sudo wabisabi-install`,
+	live: `nix build github:wighawag/wabisabi#iso-offline
 # write result/iso/*.iso to a USB stick, boot it`,
 	repo: `cd ~/nixos && $EDITOR configuration.nix
 sudo nixos-rebuild switch
 git commit -am "..." && git push`,
-	secrets: `wasisabi-secrets edit       # decrypted, in $EDITOR
-wasisabi-secrets password   # in the repo and now
-wasisabi-secrets backup     # show the age key again`,
+	secrets: `wabisabi-secrets edit       # decrypted, in $EDITOR
+wabisabi-secrets password   # in the repo and now
+wabisabi-secrets backup     # show the age key again`,
 	existing: `{
-  wasisabi.enable = true;          # system layer
+  wabisabi.enable = true;          # system layer
   home-manager.users.me = {
-    imports = [ wasisabi.homeModules.wasisabi ];
-    wasisabi.enable = true;        # apps, dotfiles, keys
+    imports = [ wabisabi.homeModules.wabisabi ];
+    wabisabi.enable = true;        # apps, dotfiles, keys
   };
 }`,
-	byHand: `nix flake new -t github:wighawag/wasisabi ~/nixos
+	byHand: `nix flake new -t github:wighawag/wabisabi ~/nixos
 cd ~/nixos && git init && git add -A
 sudo nixos-rebuild switch --flake ~/nixos`,
 };

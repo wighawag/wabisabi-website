@@ -10,11 +10,11 @@ const good = {
 			version: '0.2.0',
 			date: '2026-10-01',
 			files: [
-				{name: 'wasisabi-offline.iso', kind: 'offline', size: 9179271168, sha256: 'aa'},
-				{name: 'wasisabi-netinstall.iso', kind: 'netinstall', size: 1557233664, sha256: 'bb'},
+				{name: 'wabisabi-offline.iso', kind: 'offline', size: 9179271168, sha256: 'aa'},
+				{name: 'wabisabi-netinstall.iso', kind: 'netinstall', size: 1557233664, sha256: 'bb'},
 			],
 		},
-		{version: '0.1.0', date: '2026-09-29', files: [{name: 'wasisabi-netinstall.iso', kind: 'netinstall', size: 1, sha256: 'cc'}]},
+		{version: '0.1.0', date: '2026-09-29', files: [{name: 'wabisabi-netinstall.iso', kind: 'netinstall', size: 1, sha256: 'cc'}]},
 	],
 };
 
@@ -22,9 +22,9 @@ describe('parseReleases', () => {
 	it('keeps the order, and builds URLs under the version folder', () => {
 		const r = parseReleases(good, base);
 		expect(r.map((x) => x.version)).toEqual(['0.2.0', '0.1.0']);
-		expect(fileOf(r[0], 'offline')?.url).toBe(`${base}/v0.2.0/wasisabi-offline.iso`);
+		expect(fileOf(r[0], 'offline')?.url).toBe(`${base}/v0.2.0/wabisabi-offline.iso`);
 		expect(r[0].sums).toBe(`${base}/v0.2.0/SHA256SUMS`);
-		expect(r[0].notes).toBe('https://github.com/wighawag/wasisabi/releases/tag/v0.2.0');
+		expect(r[0].notes).toBe('https://github.com/wighawag/wabisabi/releases/tag/v0.2.0');
 	});
 
 	it('drops what it cannot trust instead of throwing', () => {

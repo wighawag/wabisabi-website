@@ -10,7 +10,7 @@
 	<div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
 		<a href={url('/')} class="flex items-center gap-3">
 			<img src={url('/enso.svg')} alt="" class="h-8 w-8" />
-			<span class="font-serif text-xl tracking-wide text-paper-light">wasisabi</span>
+			<span class="font-serif text-xl tracking-wide text-paper-light">wabisabi</span>
 		</a>
 		<div class="flex items-center gap-1 text-sm sm:gap-2">
 			{#each nav as item (item.href)}

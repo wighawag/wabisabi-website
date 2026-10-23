@@ -1,4 +1,4 @@
-// Generates the wasisabi mark: an enso (the Zen brush circle), the motif of
+// Generates the wabisabi mark: an enso (the Zen brush circle), the motif of
 // the default wallpaper. Deterministic: the same seed gives the same file, so
 // `node branding/build.mjs && git diff --exit-code` is the drift check.
 //

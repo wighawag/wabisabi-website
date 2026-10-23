@@ -1,7 +1,7 @@
 /**
  * What is downloadable, read from the release bucket's `releases.json`.
  *
- * The bucket is the source of truth, written by wasisabi's
+ * The bucket is the source of truth, written by wabisabi's
  * `scripts/release.sh`: publishing or deleting a version updates it, and the
  * site follows without a rebuild. The prerendered page shows `fallback`
  * (the release baked in at build time) and swaps in the live list once it
@@ -9,7 +9,7 @@
  */
 import {readable, type Readable} from 'svelte/store';
 
-export const DOWNLOADS = 'https://downloads.wasisabi.org';
+export const DOWNLOADS = 'https://downloads.wabisabi.computer';
 
 export type ReleaseFile = {
 	name: string;
@@ -61,7 +61,7 @@ export function parseReleases(json: unknown, base = DOWNLOADS): Release[] {
 			date: typeof r.date === 'string' ? r.date : '',
 			files,
 			sums: `${dir}/SHA256SUMS`,
-			notes: `https://github.com/wighawag/wasisabi/releases/tag/v${r.version}`,
+			notes: `https://github.com/wighawag/wabisabi/releases/tag/v${r.version}`,
 		});
 	}
 	return out;
