@@ -23,11 +23,12 @@ export const fallbackRelease: Release = {
 	date: '2026-09-29',
 	files: [
 		{
-			name: 'wabisabi-netinstall.iso',
+			// The asset predates the rename and keeps the name it was uploaded with.
+			name: 'wasisabi-netinstall.iso',
 			kind: 'netinstall',
 			size: 1557233664,
 			sha256: '414dfb5e58a805eefb9a3a82030b679794714bb8655ec1e037e4d74dcab7b11a',
-			url: 'https://github.com/wighawag/wabisabi/releases/download/v0.1.0/wabisabi-netinstall.iso',
+			url: 'https://github.com/wighawag/wabisabi/releases/download/v0.1.0/wasisabi-netinstall.iso',
 		},
 	],
 	sums: 'https://github.com/wighawag/wabisabi/releases/download/v0.1.0/SHA256SUMS',
