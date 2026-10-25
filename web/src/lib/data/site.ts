@@ -83,7 +83,19 @@ export const stack: {group: string; rows: StackRow[]}[] = [
 			{role: 'Passwords', choice: 'KeePassXC, local-first', license: 'GPL'},
 			{role: 'Sync', choice: 'Syncthing, peer to peer', license: 'MPL'},
 			{role: 'Media', choice: 'mpv + imv', license: 'GPL / MIT'},
-			{role: 'Terminal tools', choice: 'bash + ble.sh, fzf, zoxide, atuin, zellij', license: 'BSD / MIT'},
+			{role: 'Reading', choice: 'Papers + Foliate', license: 'GPL'},
+			{role: 'Scanning', choice: 'Document Scanner + XSane, driverless', license: 'GPL'},
+			{role: 'Terminal tools', choice: 'bash + ble.sh, fzf, zoxide, atuin, zellij, lazygit, micro', license: 'BSD / MIT'},
+		],
+	},
+	{
+		group: 'One option away',
+		rows: [
+			{role: 'Creative', choice: 'GIMP, Inkscape, OBS Studio', license: 'GPL'},
+			{role: 'Developer tools', choice: 'Node.js, pnpm, uv, clang, cmake, Zed', license: 'MIT / GPL'},
+			{role: 'Virtual machines', choice: 'libvirt + QEMU/KVM + virt-manager', license: 'GPL / LGPL'},
+			{role: 'Torrents', choice: 'qBittorrent', license: 'GPL'},
+			{role: 'Flatpak', choice: 'Flathub + Flatseal, outside the libre rule', license: 'LGPL'},
 		],
 	},
 	{
@@ -123,7 +135,11 @@ export const install = {
 	flash: `sha256sum -c --ignore-missing SHA256SUMS
 sudo dd if=wabisabi-netinstall.iso of=/dev/sdX bs=4M status=progress oflag=sync
 # boot the stick, then:
-sudo wabisabi-install`,
+sudo wabisabi-install
+
+# or with nix: one stick for the installer AND an encrypted restore kit
+nix build github:wighawag/wabisabi#usb -o /tmp/wabisabi-usb
+sudo /tmp/wabisabi-usb/bin/wabisabi-usb write /dev/sdX --release netinstall --kit`,
 	live: `nix build github:wighawag/wabisabi#iso-offline
 # write result/iso/*.iso to a USB stick, boot it`,
 	repo: `cd ~/nixos && $EDITOR configuration.nix
@@ -155,7 +171,7 @@ export const installSteps = [
 	},
 	{
 		title: 'Keep the repo',
-		body: 'Your machine is ~/nixos. Secrets are encrypted with sops to one age key, so the repo can be pushed anywhere. The repo plus the key is the whole machine: after a wipe, restore rebuilds it.',
+		body: 'Your machine is ~/nixos. Secrets are encrypted with sops to one age key, so the repo can be pushed anywhere. The repo plus the key is the whole machine: after a wipe, restore rebuilds it, from a restore kit on the installer stick itself (wabisabi-usb).',
 	},
 ];
 
