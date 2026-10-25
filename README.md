@@ -14,7 +14,7 @@ pnpm verify       # type check, unit tests, static build into web/build
 
 GitHub Pages, by `.github/workflows/pages.yml`: every push to `main` is checked, tested, built and published, at [wabisabi.computer](https://wabisabi.computer) (the custom domain is set in the repo's Pages settings; its DNS is on Cloudflare, "DNS only", pointing at GitHub's Pages addresses).
 
-The downloads are not here. They live in wabisabi's R2 bucket at `https://downloads.wabisabi.computer`, and the download card reads its `releases.json` in the browser (see `web/src/lib/data/releases.ts`), so publishing or deleting a release with wabisabi's `scripts/release.sh` changes the site without a rebuild. Until that answers, the card shows the release baked into `web/src/lib/data/site.ts`.
+The downloads are not here. They live in wabisabi's R2 bucket at `https://downloads.wabisabi.computer`, and the download card reads its `releases.json` in the browser (see `web/src/lib/data/releases.ts`), so publishing or deleting a release with wabisabi's `scripts/release.sh` changes the site without a rebuild. Until that answers, or if it never does, the card shows a fallback baked in at build time: the netinstall ISO of the newest GitHub release that carries one, which `release.sh` attaches (the offline ISO is too big for GitHub, so it is only in the bucket). Every build refreshes it from the GitHub API into `web/src/lib/data/fallback-release.json` (`web/scripts/fallback-release.ts`), keeping the committed file if GitHub cannot be reached, and `release.sh` starts this repo's Pages workflow after a release so the deployed fallback follows.
 
 ## Where things are
 

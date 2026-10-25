@@ -30,7 +30,11 @@ jobs:
           node-version: 24
           cache: pnpm
       - run: pnpm install --frozen-lockfile
+      # The token lifts the GitHub API's anonymous rate limit for the build's
+      # fallback-release step (web/scripts/fallback-release.ts).
       - run: pnpm verify
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: web/build

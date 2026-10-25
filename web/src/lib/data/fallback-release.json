@@ -1,0 +1,15 @@
+{
+	"version": "0.4.0",
+	"date": "2026-10-24",
+	"files": [
+		{
+			"name": "wabisabi-netinstall.iso",
+			"kind": "netinstall",
+			"size": 1561657344,
+			"sha256": "c893f7bf39b2844b8c5dfa16ba4f87639fc88df11a236446e024caa37b71e3f5",
+			"url": "https://github.com/wighawag/wabisabi/releases/download/v0.4.0/wabisabi-netinstall.iso"
+		}
+	],
+	"sums": "https://github.com/wighawag/wabisabi/releases/download/v0.4.0/SHA256SUMS",
+	"notes": "https://github.com/wighawag/wabisabi/releases/tag/v0.4.0"
+}

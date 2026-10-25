@@ -1,5 +1,6 @@
 import {derived} from 'svelte/store';
 import {createLatestRelease, fileOf, type Release} from './releases';
+import fallback from './fallback-release.json';
 
 /**
  * Everything the home page says, as data. The source of truth is the
@@ -17,23 +18,9 @@ export const links = {
 
 // What can be downloaded. Live from the release bucket (see releases.ts);
 // until it answers, or if it never does, the page shows this: the netinstall
-// ISO attached to the v0.1.0 GitHub release.
-export const fallbackRelease: Release = {
-	version: '0.1.0',
-	date: '2026-09-29',
-	files: [
-		{
-			// The asset predates the rename and keeps the name it was uploaded with.
-			name: 'wasisabi-netinstall.iso',
-			kind: 'netinstall',
-			size: 1557233664,
-			sha256: '414dfb5e58a805eefb9a3a82030b679794714bb8655ec1e037e4d74dcab7b11a',
-			url: 'https://github.com/wighawag/wabisabi/releases/download/v0.1.0/wasisabi-netinstall.iso',
-		},
-	],
-	sums: 'https://github.com/wighawag/wabisabi/releases/download/v0.1.0/SHA256SUMS',
-	notes: 'https://github.com/wighawag/wabisabi/releases/tag/v0.1.0',
-};
+// ISO of the newest GitHub release carrying one, refreshed before each build
+// (scripts/fallback-release.ts, github-release.ts).
+export const fallbackRelease = fallback as Release;
 
 export const latestRelease = createLatestRelease(fallbackRelease);
 export const netinstall = derived(latestRelease, (r) => fileOf(r, 'netinstall'));
