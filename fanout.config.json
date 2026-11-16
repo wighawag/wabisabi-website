@@ -1,0 +1,7 @@
+{
+  "stem": "github:wighawag/template-svelte-tailwind",
+  "branches": {
+    "main": {}
+  },
+  "verify": "pnpm install && pnpm verify"
+}
