@@ -6,8 +6,9 @@
  * bucket's versions, which are deleted when a newer one is published, so it
  * points at GitHub, where wabisabi's `scripts/release.sh` attaches the
  * netinstall ISO (the offline one is over GitHub's 2 GiB asset limit, so it is
- * only ever in the bucket). `scripts/fallback-release.ts` runs this before
- * each build and writes the result to `fallback-release.json`.
+ * only ever in the bucket). `scripts/fallback-release.ts` (`pnpm
+ * release:refresh`, which the Pages workflow runs before it builds) runs this
+ * and writes the result to `fallback-release.json`.
  *
  * No imports but types: the build script runs this file with plain node.
  */

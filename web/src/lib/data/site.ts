@@ -18,8 +18,8 @@ export const links = {
 
 // What can be downloaded. Live from the release bucket (see releases.ts);
 // until it answers, or if it never does, the page shows this: the netinstall
-// ISO of the newest GitHub release carrying one, refreshed before each build
-// (scripts/fallback-release.ts, github-release.ts).
+// ISO of the newest GitHub release carrying one, refreshed before each deploy
+// (`pnpm release:refresh`: scripts/fallback-release.ts, github-release.ts).
 export const fallbackRelease = fallback as Release;
 
 export const latestRelease = createLatestRelease(fallbackRelease);

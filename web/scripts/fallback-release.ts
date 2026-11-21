@@ -1,6 +1,9 @@
 /**
  * Refresh src/lib/data/fallback-release.json from wabisabi's GitHub releases
- * (see src/lib/data/github-release.ts). Runs before every build.
+ * (see src/lib/data/github-release.ts): `pnpm release:refresh`. The Pages
+ * workflow runs it before its build, so the deployed site carries the newest
+ * release; a build never runs it, so building leaves the tree as committed, and
+ * a refresh is committed when someone means to.
  *
  * A failure (offline, rate-limited, no release with the ISO yet) keeps the
  * committed file and only warns: the fallback going stale must never stop a

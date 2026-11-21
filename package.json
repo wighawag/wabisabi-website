@@ -28,6 +28,7 @@
     "-- template on purpose: wire 'pnpm verify' into whatever CI you use ----": "",
     "---------------------- DEPLOY ----------------------": "",
     "build": "pnpm web:build",
+    "release:refresh": "pnpm --filter ./web release:refresh",
     "serve": "pnpm run --filter ./web serve",
     "---------------------- RUN FULL LOCAL SETUP ----------------------": "",
     "stop": "zellij kill-session $npm_package_name",
