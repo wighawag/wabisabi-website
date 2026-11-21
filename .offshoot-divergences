@@ -18,17 +18,21 @@
 #
 # FORMAT. One file per line: its path, then its reason. `#` starts a comment.
 # A line `[<branch>]` starts a section; this repo has one node, `main`, so it
-# has none: every entry is what template-svelte-tailwind `main` modifies from
-# template-svelte `main`. A child REPO never keeps these entries: its list is
-# its own, written against this repo, and until it writes one it carries this
-# file unchanged and the check says it has none.
+# has none: every entry is what wabisabi-website `main` modifies from
+# template-svelte-tailwind `main`. A child REPO never keeps these entries: its
+# list is its own, written against this repo, and until it writes one it
+# carries this file unchanged and the check says it has none.
 
 # The workspace
-pnpm-lock.yaml                                         the lockfile with Tailwind and its plugins added
-web/package.json                                       Tailwind, its forms and typography plugins and prettier's Tailwind plugin
-web/.prettierrc                                        prettier's Tailwind plugin, which sorts the classes against app.css
+package.json                  `branding` (the mark, the social card and the PWA icons from `branding/`) and `release:refresh`, the download card's fallback refreshed from GitHub
+pnpm-lock.yaml                the lockfile with the three fonts added
+web/package.json              the site's three fonts (Fraunces, Inter, JetBrains Mono), and `release:refresh` beside a `build` that leaves the tree clean
 
-# The kit
-web/vite.plugins.ts                                    the one plugin this variant adds, Tailwind's, in the slot every repo puts its plugins
-web/src/app.css                                        Tailwind and its two plugins imported, and typography's missing .prose img rule restored
-web/src/lib/core/notifications/NotificationCard.svelte the notification card painted in Tailwind UI classes
+# The site
+web/src/app.html              the document in the site's ink and paper, and the loading accent in its paper colour
+web/src/app.css               the palette sampled from the wallpaper, the fonts and the paper grain
+web/src/web-config.json       the site's name, description, URL and colours
+web/static/icon.png           the site's icon
+web/src/lib/Head.svelte       the site's preview image, a jpg
+web/src/routes/+layout.svelte the fonts, the page under the paper grain, and the site's own update notice (`$lib/components/site/UpdateNotice.svelte`, dark on the paper, under the nav) for the root's
+web/src/routes/+page.svelte   the home page
